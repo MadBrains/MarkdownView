@@ -29,13 +29,15 @@ open class MarkdownView: UIView {
     super.init(coder: aDecoder)
   }
 
-  public func load(markdown: String?, enableImage: Bool = true) {
+  public func load(markdown: String?, enableImage: Bool = true, htmlTemplate: URL? = nil) {
     guard let markdown = markdown else { return }
 
     let bundle = Bundle(for: MarkdownView.self)
 
     var htmlURL: URL?
-    if bundle.bundleIdentifier?.hasPrefix("org.cocoapods") == true {
+    if htmlTemplate != nil {
+        htmlURL = htmlTemplate
+    } else if bundle.bundleIdentifier?.hasPrefix("org.cocoapods") == true {
       htmlURL = bundle.url(forResource: "index",
                            withExtension: "html",
                            subdirectory: "MarkdownView.bundle")

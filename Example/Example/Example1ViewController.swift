@@ -15,10 +15,11 @@ class Example1ViewController: UIViewController {
     mdView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
 
     let path = Bundle.main.path(forResource: "sample", ofType: "md")!
+    let htmlTemplate = URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!)
 
     let url = URL(fileURLWithPath: path)
     let markdown = try! String(contentsOf: url, encoding: String.Encoding.utf8)
-    mdView.load(markdown: markdown, enableImage: true)
+    mdView.load(markdown: markdown, enableImage: true, htmlTemplate: htmlTemplate)
 
   }
 
