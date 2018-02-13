@@ -4,6 +4,10 @@ import WebKit
 open class MarkdownView: UIView {
 
   private var webView: WKWebView?
+    
+  var contentSize: CGSize? {
+    return webView?.scrollView.contentSize
+  }
 
   public var isScrollEnabled: Bool = true {
 
