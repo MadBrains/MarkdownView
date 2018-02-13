@@ -5,7 +5,7 @@ open class MarkdownView: UIView {
 
   private var webView: WKWebView?
     
-  var contentSize: CGSize? {
+  public var contentSize: CGSize? {
     return webView?.scrollView.contentSize
   }
 
